@@ -100,12 +100,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Deploy to Heroku
+      - name: Deploy to Vercel
         if: ${{ github.event_name == 'push' }}
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP}}
-          heroku_email: ${{secrets.HEROKU_API_EMAIL}}
-          healthcheck: "https://${{secrets.HEROKU_APP}}.herokuapp.com/health"
-          rollbackonhealthcheckfailed: true
+        run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
