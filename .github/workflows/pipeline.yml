@@ -104,4 +104,5 @@ jobs:
       run: npm install --global vercel
     - name: Deploy to Vercel
       if: ${{ github.event_name == 'push' }}
-      run: npx vercel --prod --yes --token ${{ secrets.VERCEL_TOKEN }}
+      run: npx vercel --prod --yes --name pokedex-for-ci --token ${{ secrets.VERCEL_TOKEN }}
+
