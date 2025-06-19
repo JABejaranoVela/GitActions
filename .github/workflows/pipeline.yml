@@ -61,7 +61,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm ci
       - uses: actions/download-artifact@v4
         with:
