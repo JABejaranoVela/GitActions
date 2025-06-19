@@ -1,4 +1,4 @@
-/* global cy */
+/* global cY */
 
 describe('Pokedex', function() {
   it('frontpage can be opened', function () {
