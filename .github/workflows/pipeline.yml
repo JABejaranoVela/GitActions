@@ -97,9 +97,12 @@ jobs:
     needs: [test, e2e]
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Deploy to Vercel
-        if: ${{ github.event_name == 'push' }}
-        run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Install Vercel CLI
+      run: npm install --global vercel
+    - name: Deploy to Vercel
+      if: ${{ github.event_name == 'push' }}
+      run: |
+        vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
