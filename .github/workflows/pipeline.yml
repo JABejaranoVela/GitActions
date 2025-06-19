@@ -27,7 +27,6 @@ jobs:
       # Instalar Node.js y dependencias
       - uses: actions/setup-node@v2
         with:
-          cache: 'npm'
           node-version: '14'
       - name: Install dependencies
         run: npm ci
@@ -42,7 +41,6 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v2
         with:
-          cache: 'npm'
           node-version: '14'
       - name: Install dependencies
         run: npm ci
@@ -62,7 +60,6 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v2
         with:
-          cache: 'npm'
           node-version: '14'
       - name: Install dependencies
         run: npm ci
@@ -82,7 +79,6 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v2
         with:
-          cache: 'npm'
           node-version: '14'
       - name: Install dependencies
         run: npm ci
