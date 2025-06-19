@@ -20,9 +20,11 @@ jobs:
   lint:
     runs-on: ubuntu-22.04
     steps:
+      # Copiar el repositorio
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      # Instalar Node.js y dependencias
       - uses: actions/setup-node@v2
         with:
           cache: 'npm'
@@ -46,7 +48,7 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist
@@ -64,7 +66,7 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: npm ci
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist
@@ -84,7 +86,7 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: npm ci
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist
